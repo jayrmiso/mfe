@@ -1,3 +1,5 @@
+const _require = id => require(require.resolve(id, { paths: [require.main.path] }));
+const HtmlWebpackPlugin = _require('html-webpack-plugin');
 module.exports = {
     module: {
         rules: [
@@ -13,5 +15,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        })
+    ]
 }
